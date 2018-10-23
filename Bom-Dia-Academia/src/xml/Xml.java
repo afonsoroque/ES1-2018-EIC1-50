@@ -34,6 +34,15 @@ public class Xml {
 	private static Document document;
 	private final static String PASSWORD = "admin";
 	
+	/**
+	 * adiciona o registo do utilizador ao ficheiro XML
+	 * @param emailText email do utilizador
+	 * @param usernameText username do utilizador
+	 * @param passwordText password da aplicação
+	 * 
+	 */
+	
+	
 	public static void addRegister(String emailText, String usernameText, String passwordText) {
 		
 		createFile();
@@ -74,6 +83,13 @@ public class Xml {
 		JOptionPane.showMessageDialog(null, "Complete register!", "Register", 1);
 	}
 	
+	/**
+	 * adiciona filtros ao ficheiro XML
+	 * 
+	 * 
+	 */
+	
+	 
 	private static void addFilters() {
 		
 		Element project = document.createElement("Project");
@@ -101,6 +117,12 @@ public class Xml {
 		writeFile(document);
 	}
 	
+	/**
+	 * cria o ficheiro XML
+	 * 
+	 */
+	
+	
 	public static void createFile() {
 		
 		f = new File("./config.xml");
@@ -116,6 +138,7 @@ public class Xml {
 		}
 	}
 	
+	// cria o documento do ficheiro XML
 	public static Document createDocument() {
 		
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -140,6 +163,13 @@ public class Xml {
 		return document;
 	}
 	
+	/**
+	 * escreve no ficheiro XML
+	 * @param document documento a ser escrito 
+	 * 
+	 */
+	
+	// 
 	private static void writeFile(Document document) {
 		
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -164,6 +194,13 @@ public class Xml {
 		}
 	}
 
+	/**
+	 * lê o ficheiro XML e escreve o conteudo na textArea
+	 * @param textArea área do texto onde será lida
+	 * 
+	 */
+	
+	 
 	public static void readFile(JTextArea textArea) {
 		
 		FileReader fileReader = null;
@@ -197,7 +234,14 @@ public class Xml {
 		    }
 		}
 	}
-
+	
+	/**
+	 * guarda alterações no ficheiro XML
+	 * @param textArea área do texto onde será guardada 
+	 * 
+	 */
+	
+	
 	public static void saveFile(JTextArea textArea) {
 		
 		String xmlText = textArea.getText();
@@ -219,6 +263,13 @@ public class Xml {
 		}
 	}
 	
+	/**
+	 * confirma password para aceder ao ficheiro XML
+	 * @param atualPanel panel onde estava anteriormente
+	 * 
+	 */
+	
+ 
 	public static void checkPassword(JPanel atualPanel) {
 			
 		JPasswordField pwd = new JPasswordField(10);
@@ -236,6 +287,11 @@ public class Xml {
 				JOptionPane.showMessageDialog(null, "Password incorrect", "Alert", 2);
 		}	
 	}
+	
+	/**
+	 * returna filtros que estam no ficheiro XML
+	 * @return array com os filtros
+	 */
 	
 	public static String[] getFilters() {
 		
